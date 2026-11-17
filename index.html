@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080817">
+<title>THE DARK HOUR | AFTERHOURS</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at center, #19234b 0%, #0b0b20 55%, #05050c 100%);
+    color: #e5eaff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    padding: 35px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.orb {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #b5d7ff, #4269c7 45%, #151c48 75%);
+    box-shadow: 0 0 45px #527bff80, 0 0 100px #3048a550;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+h1 {
+    font-size: clamp(32px, 8vw, 52px);
+    letter-spacing: 8px;
+    color: #a8caff;
+    text-shadow: 0 0 20px #477fff80;
+}
+
+.subtitle {
+    margin-top: 12px;
+    color: #849acb;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+.description {
+    margin: 35px 0 25px;
+    color: #aab6d4;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+button, .fallback {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #648bdf;
+    background: #17264b;
+    color: #d8e7ff;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+button:hover, .fallback:hover {
+    background: #304e91;
+    box-shadow: 0 0 25px #477fff60;
+}
+
+.fallback {
+    margin-top: 12px;
+    background: transparent;
+}
+
+.footer {
+    margin-top: 35px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #52658e;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 35px #527bff60; }
+    50% { box-shadow: 0 0 65px #527bffb0; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="orb"></div>
+
+    <h1>TARTARUS</h1>
+    <div class="subtitle">THE DARK HOUR</div>
+
+    <div class="description" id="message">
+        Somewhere between yesterday and tomorrow.<br>
+        Your journey awaits.
+    </div>
+
+    <button onclick="launchGame()">
+        ENTER THE DARK HOUR
+    </button>
+
+    <a class="fallback"
+       href="https://store.steampowered.com/app/2161700/Persona_3_Reload/">
+       OPEN STEAM STORE
+    </a>
+
+    <div class="footer">
+        AFTERHOURS // SIGNAL LOST
+    </div>
+</div>
+
+<script>
+function launchGame() {
+    window.location.href = "steam://rungameid/2161700";
+
+    document.getElementById("message").innerHTML =
+        "Attempting to contact Steam...<br>Make sure Persona 3 Reload is installed.";
+}
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        window.location.href = "steam://rungameid/2161700";
+    }, 800);
+});
+</script>
+</body>
+</html>
